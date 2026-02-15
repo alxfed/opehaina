@@ -1,10 +1,10 @@
-# Package name
-Package Name
+# Opehaina
+Opehaina
 <pre>
-  pip install package-name
+  pip install opehaina
 </pre>
 Then:
 ```Python
   # Python
-  import package_name
+  import opehaina
 ```

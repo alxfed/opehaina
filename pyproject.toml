@@ -2,12 +2,12 @@
 requires = ["setuptools>=67.0"]
 build-backend = "setuptools.build_meta"
 [project]
-name = "package-name"
+name = "opehaina"
 version = "0.0.1"
 authors = [
     {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
 ]
-description = "Package description"
+description = "Opehaina"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers=[
@@ -16,17 +16,12 @@ classifiers=[
         "Operating System :: OS Independent",
 ]
 
-keywords = ["package-name"]
+keywords = ["opehaina"]
 
 dependencies = [
-    "PyGithub >= 2.6.0",
-    "requests >= 2.32.3",
-    "click >= 8.3.0"
+    "openai >= 2.21.0"
 ]
 
-[project.scripts]
-package-name = "package_name.cli:run"
-
 [project.urls]
-"Homepage" = "https://github.com/org_name/package_name"
-"Bug Tracker" = "https://github.com/org_name/package_name/issues"
+"Homepage" = "https://github.com/alxfed/opehaina"
+"Bug Tracker" = "https://github.com/alxfed/opehaina/issues"
