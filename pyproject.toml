@@ -3,7 +3,7 @@ requires = ["setuptools>=67.0"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "opehaina"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
     {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
 ]
@@ -19,7 +19,8 @@ classifiers=[
 keywords = ["opehaina"]
 
 dependencies = [
-    "openai >= 2.21.0"
+    "requests >= 2.32.3",
+    "PyYAML >= 6.0.0",
 ]
 
 [project.urls]

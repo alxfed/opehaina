@@ -18,14 +18,15 @@ headers = {
 }
 
 
-def respond(messages=None, **kwargs):
+def respond(messages=None, instructions=None, **kwargs):
     """ All parameters should be in kwargs, but they are optional
     """
     accumulated_output = ""
     accumulated_reasoning = ""
+    instruction = kwargs.get("system_instruction", instructions),
     json_data = {
         "model":            kwargs.get("model", default_model),
-        "instructions":     kwargs.get("system", "answer concisely"),
+        "instructions":     instruction,
         "input":            messages,
         "max_output_tokens": kwargs.get("max_tokens", 10000),
         "reasoning": {
