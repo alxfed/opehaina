@@ -8,19 +8,21 @@ LICENSE file in the root directory of this source tree.
 import requests
 from os import environ
 
-api_key             = environ.get("OPENAI_API_KEY", '')
-default_model       = environ.get("OPENAI_DEFAULT_MODEL", 'gpt-5.2')
-api_base            = environ.get("OPENAI_API_BASE", "https://api.openai.com/v1")
-
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer " + api_key,
-}
-
 
 def respond(messages=None, instructions=None, **kwargs):
     """ All parameters should be in kwargs, but they are optional
     """
+    # Moved here for dynamic loading
+    api_key = environ.get("OPENAI_API_KEY", '')
+    default_model = environ.get("OPENAI_DEFAULT_MODEL", 'gpt-5.2')
+    api_base = environ.get("OPENAI_API_BASE", "https://api.openai.com/v1")
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + api_key,
+    }
+
+    # The function itself
     accumulated_output = ''
     accumulated_reasoning = ''
     instruction = kwargs.get('system_instruction', instructions)
@@ -28,7 +30,7 @@ def respond(messages=None, instructions=None, **kwargs):
         "model":            kwargs.get("model", default_model),
         "instructions":     instruction,
         "input":            messages,
-        "max_output_tokens": kwargs.get("max_tokens", 10000),
+        "max_output_tokens": kwargs.get("max_tokens", 64000),
         "reasoning": {
             "effort": "xhigh",
             "summary": "detailed"
